@@ -30,4 +30,3 @@ export default class App extends Component {
     );
   }
 }
-// one route that will take an `id` parameter after`/movies/` (ex: `/movies/2`, `/movies/3` where the id is dynamic). This route should load the `Movie` component.
