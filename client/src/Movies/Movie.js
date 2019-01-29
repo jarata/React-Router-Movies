@@ -8,10 +8,10 @@ export default class Movie extends Component {
       movie: null
     };
   }
-
+  // You will need to modify line 13 of `Movie.js` in order to accept the correct id for the movie selected.
   componentDidMount() {
     // change this line to grab the id passed on the URL
-    const id = 1;
+    const id = this.props.match.params.id;
     this.fetchMovie(id);
   }
 
