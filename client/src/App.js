@@ -1,32 +1,20 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import React, { useState } from 'react';
 
 import SavedList from './Movies/SavedList';
-import MovieList from './Movies/MovieList';
-import Movie from './Movies/Movie';
 
-export default class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      savedList: []
-    };
-  }
+const App = () => {
+  const [savedList, setSavedList] = useState( [] );
 
-  addToSavedList = movie => {
-    const savedList = this.state.savedList;
-    savedList.push(movie);
-    this.setState({ savedList });
+  const addToSavedList = movie => {
+    setSavedList( [...savedList, movie] );
   };
 
-  render() {
-    return (
-      <div>
-        <SavedList list={this.state.savedList} />
-        <div>Replace this Div with your Routes</div>
-        <Route exact path='/' component={MovieList} />
-        <Route path='/movies/:id' component={Movie} />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <SavedList list={savedList} />
+      <div>Replace this Div with your Routes</div>
+    </div>
+  );
+};
+
+export default App;
